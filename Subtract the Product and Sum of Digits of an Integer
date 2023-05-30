@@ -1,0 +1,25 @@
+class Solution {
+    public int subtractProductAndSum(int n) {
+        int sum = 0; //сумма
+        int product = 1; //произведение
+        int temp = n; //число, которое нужно разделить 
+
+     //создаем Лист для хранения цифр (мемоизация)
+     List<Integer> digits = new ArrayList<>();   
+
+     while(temp > 0){
+         int digit = temp % 10; //получаем остаток деления на 10 
+         digits.add(digit); //эту цифру добавляем в список 
+         temp = temp/10; //потом снова делим это число на 10
+     }
+    
+    //обрабатываем каждую цифру из списка digits
+    for(int digit: digits){
+        sum = sum + digit;
+        product = product*digit;
+    }
+
+    return product-sum;
+
+    }
+}
